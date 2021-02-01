@@ -1,6 +1,6 @@
 import config from 'config';
-import { startActiveBackupSync } from './src/core/active-backup-service';
-import { initiateMongoClient } from './src/core/mongo-client';
+import { startActiveBackupSync } from './src/core/db/active-backup-service';
+import { initiateMongoClient } from './src/core/db/mongo-client';
 import { DBConfig } from './src/models/db-config';
 import { MongoClientRole } from './src/models/mongo-client-role';
 import { logError, logInfo } from './src/utils/logger/logger';
@@ -13,7 +13,7 @@ import { logError, logInfo } from './src/utils/logger/logger';
 
     config.get<DBConfig>('activeDBConfig').dbList.forEach(db => {
       startActiveBackupSync(activeClient.db(db), backupClient.db(db));
-    })
+    });
   } catch (err) {
     logError(err);
   }
