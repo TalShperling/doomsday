@@ -43,6 +43,6 @@
     "config": "^3.3.3",
     "kubernetes-client": "^9.0.0",
     "mongodb": "^3.6.3",
-    "openshift-rest-client": "^5.1.0"
+    "openshift-rest-client": "^6.0.0"
   }
 }
